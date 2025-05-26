@@ -32,25 +32,31 @@ export const Navigation = () => {
             <Link to="/influenceurs" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
               Influenceurs
             </Link>
-            <a href="#map" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+            <Link to="/carte" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
               Carte
-            </a>
-            <a href="#reviews" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
+            </Link>
+            <Link to="/avis" className="text-gray-700 hover:text-green-600 transition-colors font-medium">
               Avis
-            </a>
-            <Button className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Recommandations IA
-            </Button>
-            <div className="flex items-center space-x-2">
-              <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
-                <LogIn className="w-4 h-4 mr-2" />
-                Connexion
-              </Button>
+            </Link>
+            <Link to="/recommendations-ia">
               <Button className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white">
-                <User className="w-4 h-4 mr-2" />
-                Inscription
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Recommandations IA
               </Button>
+            </Link>
+            <div className="flex items-center space-x-2">
+              <Link to="/login">
+                <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Connexion
+                </Button>
+              </Link>
+              <Link to="/signup">
+                <Button className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white">
+                  <User className="w-4 h-4 mr-2" />
+                  Inscription
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -76,25 +82,31 @@ export const Navigation = () => {
             <Link to="/influenceurs" className="block text-gray-700 hover:text-green-600 font-medium">
               Influenceurs
             </Link>
-            <a href="#map" className="block text-gray-700 hover:text-green-600 font-medium">
+            <Link to="/carte" className="block text-gray-700 hover:text-green-600 font-medium">
               Carte
-            </a>
-            <a href="#reviews" className="block text-gray-700 hover:text-green-600 font-medium">
+            </Link>
+            <Link to="/avis" className="block text-gray-700 hover:text-green-600 font-medium">
               Avis
-            </a>
-            <Button className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white w-full mb-2">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Recommandations IA
-            </Button>
+            </Link>
+            <Link to="/recommendations-ia">
+              <Button className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white w-full mb-2">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Recommandations IA
+              </Button>
+            </Link>
             <div className="space-y-2">
-              <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 w-full">
-                <LogIn className="w-4 h-4 mr-2" />
-                Connexion
-              </Button>
-              <Button className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white w-full">
-                <User className="w-4 h-4 mr-2" />
-                Inscription
-              </Button>
+              <Link to="/login">
+                <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 w-full">
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Connexion
+                </Button>
+              </Link>
+              <Link to="/signup">
+                <Button className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white w-full">
+                  <User className="w-4 h-4 mr-2" />
+                  Inscription
+                </Button>
+              </Link>
             </div>
           </div>
         )}
