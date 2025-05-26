@@ -11,6 +11,8 @@ import Signup from "./pages/Signup";
 import RecommendationsIA from "./pages/RecommendationsIA";
 import Carte from "./pages/Carte";
 import Avis from "./pages/Avis";
+import DestinationDetails from "./pages/DestinationDetails";
+import EventDetails from "./pages/EventDetails";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/recommendations-ia" element={<RecommendationsIA />} />
           <Route path="/carte" element={<Carte />} />
           <Route path="/avis" element={<Avis />} />
+          <Route path="/destination/:id" element={<DestinationDetails />} />
+          <Route path="/event/:id" element={<EventDetails />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
