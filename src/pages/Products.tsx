@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -7,11 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { ShoppingCart, Heart, Star, Filter, MapPin } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [cart, setCart] = useState<number[]>([]);
+  const { addToCart } = useCart();
 
   const products = [
     {
@@ -108,11 +109,15 @@ const Products = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const addToCart = (productId: number) => {
-    setCart([...cart, productId]);
+  const handleAddToCart = (product: any) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      type: 'product'
+    });
   };
-
-  const isInCart = (productId: number) => cart.includes(productId);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50">
@@ -215,14 +220,20 @@ const Products = () => {
                     </Badge>
                   </div>
                   
-                  <Button 
-                    className="w-full bg-gradient-to-r from-green-600 to-yellow-600"
-                    onClick={() => addToCart(product.id)}
-                    disabled={isInCart(product.id)}
-                  >
-                    <ShoppingCart className="h-4 w-4 mr-2" />
-                    {isInCart(product.id) ? "Ajouté au panier" : "Ajouter au panier"}
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button 
+                      className="flex-1 bg-gradient-to-r from-green-600 to-yellow-600"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      <ShoppingCart className="h-4 w-4 mr-2" />
+                      Ajouter au panier
+                    </Button>
+                    <Link to={`/product/${product.id}`}>
+                      <Button variant="outline">
+                        Voir détails
+                      </Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             ))}

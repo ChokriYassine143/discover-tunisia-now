@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import { Menu, X, MessageCircle, User, LogIn, UserCog } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Cart } from "@/components/Cart";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +49,7 @@ export const Navigation = () => {
             </Link>
             
             <div className="flex items-center space-x-2 ml-4 border-l border-gray-300 pl-4">
+              <Cart />
               <Link to="/recommendations-ia">
                 <Button size="sm" className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white">
                   <MessageCircle className="w-4 h-4 mr-2" />
@@ -115,6 +116,9 @@ export const Navigation = () => {
             </Link>
             
             <div className="pt-4 border-t border-gray-200 space-y-2">
+              <div className="px-3">
+                <Cart />
+              </div>
               <Link to="/recommendations-ia" className="block">
                 <Button className="bg-gradient-to-r from-green-600 to-yellow-600 hover:from-green-700 hover:to-yellow-700 text-white w-full">
                   <MessageCircle className="w-4 h-4 mr-2" />

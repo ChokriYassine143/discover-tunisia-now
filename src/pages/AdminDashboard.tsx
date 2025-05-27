@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -7,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Home, ShoppingCart, FileText, BarChart3, CheckCircle, XCircle, Eye } from "lucide-react";
+import { Users, Home, ShoppingCart, FileText, BarChart3, CheckCircle, XCircle, Eye, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
   const stats = [
@@ -59,6 +59,14 @@ const AdminDashboard = () => {
     }
   };
 
+  const toggleUserStatus = (id: number) => {
+    setUsers(prev => prev.map(user => 
+      user.id === id 
+        ? { ...user, status: user.status === "actif" ? "suspendu" : "actif" }
+        : user
+    ));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50">
       <Navigation />
@@ -70,6 +78,21 @@ const AdminDashboard = () => {
               Tableau de Bord Administrateur
             </h1>
             <p className="text-gray-600">Gérez votre plateforme TuniTerra</p>
+            
+            <div className="flex gap-4 mt-4">
+              <Link to="/admin/products">
+                <Button className="bg-gradient-to-r from-green-600 to-yellow-600">
+                  <Settings className="h-4 w-4 mr-2" />
+                  Gérer les Produits
+                </Button>
+              </Link>
+              <Link to="/admin/accommodations">
+                <Button className="bg-gradient-to-r from-blue-600 to-purple-600">
+                  <Settings className="h-4 w-4 mr-2" />
+                  Gérer les Hébergements
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Stats Cards */}
@@ -138,8 +161,12 @@ const AdminDashboard = () => {
                               <Button size="sm" variant="outline">
                                 <Eye className="h-4 w-4" />
                               </Button>
-                              <Button size="sm" variant="outline">
-                                Modifier
+                              <Button 
+                                size="sm" 
+                                variant={user.status === "actif" ? "destructive" : "default"}
+                                onClick={() => toggleUserStatus(user.id)}
+                              >
+                                {user.status === "actif" ? "Suspendre" : "Activer"}
                               </Button>
                             </div>
                           </TableCell>
