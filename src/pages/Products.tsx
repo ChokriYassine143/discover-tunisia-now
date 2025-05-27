@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const { addToCart } = useCart();
+  const { addToCart, getTotalItems } = useCart();
 
   const products = [
     {
@@ -240,11 +240,11 @@ const Products = () => {
           </div>
 
           {/* Cart Summary */}
-          {cart.length > 0 && (
+          {getTotalItems() > 0 && (
             <div className="fixed bottom-4 right-4">
               <Button className="bg-gradient-to-r from-green-600 to-yellow-600 shadow-lg">
                 <ShoppingCart className="h-4 w-4 mr-2" />
-                Panier ({cart.length})
+                Panier ({getTotalItems()})
               </Button>
             </div>
           )}

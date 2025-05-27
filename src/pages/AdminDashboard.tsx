@@ -10,17 +10,17 @@ import { Users, Home, ShoppingCart, FileText, BarChart3, CheckCircle, XCircle, E
 import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
+  const [users, setUsers] = useState([
+    { id: 1, name: "Ahmed Ben Ali", email: "ahmed@email.com", role: "touriste", status: "actif", joinDate: "2024-03-15" },
+    { id: 2, name: "Fatma Trabelsi", email: "fatma@email.com", role: "influenceur", status: "actif", joinDate: "2024-02-20" },
+    { id: 3, name: "Mohamed Sassi", email: "mohamed@email.com", role: "touriste", status: "suspendu", joinDate: "2024-01-10" }
+  ]);
+
   const stats = [
     { title: "Utilisateurs actifs", value: "1,234", icon: Users, color: "bg-blue-500" },
     { title: "Réservations", value: "89", icon: Home, color: "bg-green-500" },
     { title: "Commandes", value: "156", icon: ShoppingCart, color: "bg-orange-500" },
     { title: "Publications", value: "45", icon: FileText, color: "bg-purple-500" }
-  ];
-
-  const users = [
-    { id: 1, name: "Ahmed Ben Ali", email: "ahmed@email.com", role: "touriste", status: "actif", joinDate: "2024-03-15" },
-    { id: 2, name: "Fatma Trabelsi", email: "fatma@email.com", role: "influenceur", status: "actif", joinDate: "2024-02-20" },
-    { id: 3, name: "Mohamed Sassi", email: "mohamed@email.com", role: "touriste", status: "suspendu", joinDate: "2024-01-10" }
   ];
 
   const accommodations = [
