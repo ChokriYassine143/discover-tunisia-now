@@ -15,8 +15,11 @@ import DestinationDetails from "./pages/DestinationDetails";
 import EventDetails from "./pages/EventDetails";
 import Profile from "./pages/Profile";
 import Accommodations from "./pages/Accommodations";
+import AccommodationDetails from "./pages/AccommodationDetails";
 import AdminDashboard from "./pages/AdminDashboard";
 import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
+import InfluencerDashboard from "./pages/InfluencerDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,8 +42,11 @@ const App = () => (
           <Route path="/event/:id" element={<EventDetails />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/accommodations" element={<Accommodations />} />
+          <Route path="/accommodation/:id" element={<AccommodationDetails />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/influencer-dashboard" element={<InfluencerDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
